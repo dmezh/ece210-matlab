@@ -52,8 +52,3 @@ imshow(F)
 %% Q2 --------------------------------------------
 
 [val,ind] = findThreshold(normpdf(linspace(0,5,100),0,1), 0.05)
-
-function [val, ind] = findThreshold(x, threshold)
-    I = find(x<threshold, 1);
-    [val, ind] = deal(x(I), I);
-end
