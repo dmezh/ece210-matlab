@@ -52,3 +52,15 @@ imshow(F)
 %% Q2 --------------------------------------------
 [val,ind] = findThreshold(normpdf(linspace(0,5,100),0,1), 0.05);
 fprintf("Q2: The threshold index below 0.05 is %d with value %f\n", ind, val);
+
+%% Q3 --------------------------------------------
+
+x = linspace(-5.25,5.25,9999);
+y = sinc(x);
+zerosAndExtrema(x,y); % the zero crossings happen at integer values of x
+middle_extrema = find(x >= 0, 1);
+next_zero = find(x <= 1, 1, 'last');
+region = y(middle_extrema:next_zero);
+[val, ind] = findThreshold(region, 0.2);
+
+fprintf("Q3: The threshold index below 0.2 in the region is %d (x=%f) with value y=%f\n", ind + middle_extrema, x(ind+middle_extrema), y(ind+middle_extrema));
