@@ -1,5 +1,6 @@
+% checks if rows of input matrix are an orthonormal set
 function out = isOrthonormal(vi)
-    maxerr = 10^-5;
+    maxerr = 10^-6;
     % checking if all the norms are 1
     if any(abs(vecnorm(vi) - 1) > maxerr)
         out = 0;
@@ -15,6 +16,5 @@ function out = isOrthonormal(vi)
             end
         end
     end
-    out = 1;
     
 end
